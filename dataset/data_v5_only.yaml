@@ -1,0 +1,8 @@
+path: .
+train:
+  - dataset/images/train_v4
+  - dataset/images/train_v5
+val: dataset/images/val
+
+names:
+  0: People

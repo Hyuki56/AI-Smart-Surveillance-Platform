@@ -6,6 +6,7 @@ from services.snapshot_service import SnapshotService
 
 
 class EventService:
+
     def __init__(self):
         self.previous_state = {}
         self.enter_times = {}
@@ -14,6 +15,7 @@ class EventService:
         self.repository = EventRepository()
 
     def update(self, person, inside, frame):
+
         tracker_id = person.tracker_id
 
         print(
@@ -26,7 +28,14 @@ class EventService:
         if tracker_id is None:
             return None
 
-        previous_inside = self.previous_state.get(tracker_id, False)
+        previous_inside = self.previous_state.get(
+            tracker_id,
+            False
+        )
+
+        # -----------------------------------------
+        # ENTER
+        # -----------------------------------------
 
         if not previous_inside and inside:
 
@@ -53,7 +62,12 @@ class EventService:
                 image_path=image_path
             )
 
+        # -----------------------------------------
+        # EXIT
+        # -----------------------------------------
+
         if previous_inside and not inside:
+
             exit_time = datetime.now()
 
             enter_time = self.enter_times.pop(
@@ -83,3 +97,12 @@ class EventService:
 
         return None
 
+    # -----------------------------------------
+    # Recent Events
+    # -----------------------------------------
+
+    def get_recent_events(self, limit=10):
+
+        return self.repository.find_recent_events(
+            limit=limit
+        )

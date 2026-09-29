@@ -1,7 +1,38 @@
-venv/
-.venv/
-.env
+# Python
 __pycache__/
-*.pyc
-data/
-snapshots/
+*.py[cod]
+
+# Virtual environment
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+
+# Test cache
+.pytest_cache/
+
+# Environment
+.env
+
+# Runtime database
+intrusion.db
+
+# Generated snapshots
+snapshots/*.jpg
+snapshots/*.jpeg
+snapshots/*.png
+
+# Training outputs
+runs/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# PyCharm
+.idea/

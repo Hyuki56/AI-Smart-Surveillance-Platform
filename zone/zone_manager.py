@@ -5,10 +5,10 @@ class ZoneManager:
     def __init__(self):
         self.points = np.array(
             [
-                (650,700),
+                (450,700),
                 (1000,700),
                 (1100,250),
-                (950,250)
+                (880,250)
             ],
             dtype=np.int32
         )
